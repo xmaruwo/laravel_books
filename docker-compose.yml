@@ -2,17 +2,19 @@ version: '3'
 services:
 
   #PHP Service
-  laravel_books:
+  php:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel
+    image: laravel_app
     container_name: laravel_books
     restart: unless-stopped
     tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
+    ports:
+      - "8000:8000"
+#   environment:
+#      SERVICE_NAME: laravel_books
+#      SERVICE_TAGS: dev
     working_dir: /var/www
     volumes:
       - ./:/var/www
@@ -20,36 +22,20 @@ services:
     networks:
       - app-network
     links:
-      - webserver
-      - db
-
-  #Nginx Service
-  webserver:
-    image: laravel_books
-    container_name: laravel_books
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - app-network
+      - mysql
 
   #MySQL Service
-  db:
-    image: mysql:8.0.32
-    container_name: laravel_books
+  mysql:
+    platform: linux/arm64
+    image: mysql:8.0.33
+    container_name: laravel_db
     restart: unless-stopped
     tty: true
     ports:
-      - "3307:3307"
+      - "3306:3306"
     environment:
       MYSQL_DATABASE: laravel_books
-      MYSQL_ROOT_PASSWORD:
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      MYSQL_ROOT_PASSWORD: root
     volumes:
       - dbdata:/var/lib/mysql/
       - ./mysql/my.cnf:/etc/mysql/my.cnf

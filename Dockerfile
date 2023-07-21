@@ -24,5 +24,7 @@ COPY . /app
 # Composerパッケージのインストール
 RUN composer install
 
+# FROM --platform=linux/x86_64 mysql:8.0
+
 # コンテナを起動する際のコマンド
 CMD ["php", "artisan", "serve", "--host", "0.0.0.0"]
