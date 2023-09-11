@@ -8,6 +8,19 @@ PHP+Laravel+MySQLで本の管理サイト作成
 
 ***
 
+## 環境各種
+| 環境/言語/など | バージョン |
+----|----
+| php |  v8.2.8 |
+| laravel | v10.15.0 |
+| ejs | 3.1.9 |
+| mysql2 | 3.2.1 |
+| mysql | Ver 8.0.32 for macos13.0 on arm64 (Homebrew) |
+| sequelize | 6.32.0 |
+
+
+***
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
