@@ -13,10 +13,7 @@ PHP+Laravel+MySQLで本の管理サイト作成
 ----|----
 | php |  v8.2.8 |
 | laravel | v10.15.0 |
-| ejs | 3.1.9 |
-| mysql2 | 3.2.1 |
-| mysql | Ver 8.0.32 for macos13.0 on arm64 (Homebrew) |
-| sequelize | 6.32.0 |
+| mysql | 8.0.33 |
 
 
 ***
